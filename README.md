@@ -30,10 +30,10 @@ This is a blogging platform built with Next.js, MongoDB, and TypeScript. The app
 
 1. Clone the repository:
 
-   ```bash
-   git clone https://github.com/your-username/your-repo-name.git
-   cd your-repo-name
-   ```
+```bash
+git clone https://github.com/Petr1197/personal-blog
+cd personal-blog
+```
 
 2. Install dependencies:
 
