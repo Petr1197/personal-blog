@@ -5,6 +5,7 @@ import clientPromise from '@/lib/mongodb';
 type Post = {
   title: string;
   content: string;
+  date: string;
 };
 
 export async function POST(request: Request) {
@@ -18,7 +19,7 @@ export async function POST(request: Request) {
     // Validate the request body (optional, but recommended)
     if (!body.title || !body.content) {
       return NextResponse.json(
-        { message: 'Title and content are required' },
+        { message: 'Title, content are required' },
         { status: 400 }
       );
     }
@@ -27,6 +28,7 @@ export async function POST(request: Request) {
     const result = await db.collection('posts').insertOne({
       title: body.title,
       content: body.content,
+      date: body.date,
     });
 
     // Return a success response
