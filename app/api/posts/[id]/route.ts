@@ -1,4 +1,5 @@
 
+
 import { NextResponse } from "next/server";
 import clientPromise from "@/lib/mongodb"; // Adjust the import path as necessary
 import { ObjectId } from "mongodb";
@@ -19,6 +20,7 @@ export async function DELETE(req: Request, { params }: { params: { id: string } 
     if (result.deletedCount === 0) {
       return NextResponse.error(); // Handle if no post was found with that ID
     }
+
 
     return NextResponse.json({ message: "Post deleted successfully!" });
   } catch (error) {

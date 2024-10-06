@@ -30,15 +30,31 @@ export default async function Home() {
 
   return (
     <>
-      <div className="flex flex-col align-center justify-center gap-4">
-        <div className="w-fit mx-auto">
-          <Link href={"/blogs"}>Blogs</Link>
-          <Link href={"/post-blog"}>Post a new Blog</Link>
+      <div className="flex flex-col items-center justify-center gap-6">
+        <div className="text-center my-10">
+          <h1 className="text-4xl font-extrabold text-gray-900 mb-4">
+            Welcome to my Blog Platform
+          </h1>
+          <h2 className="text-2xl font-semibold text-gray-700">
+            Explore, Create, and Share Your Thoughts
+          </h2>
         </div>
-        {/* Pass serialized comments to the dynamically loaded client-side component */}
+        <div className="w-fit mx-auto mt-4 flex space-x-8">
+          <Link
+            href="/blogs"
+            className="text-lg font-semibold text-blue-500 hover:text-blue-700 border-b-2 border-transparent hover:border-blue-500 transition-colors duration-300"
+          >
+            Blogs
+          </Link>
+          <Link
+            href="/post-blog"
+            className="text-lg font-semibold text-green-500 hover:text-green-700 border-b-2 border-transparent hover:border-green-500 transition-colors duration-300"
+          >
+            Post a New Blog
+          </Link>
+        </div>
         <HomepageCarousel posts={serializedPosts} />
       </div>
-      <footer></footer>
     </>
   );
 }

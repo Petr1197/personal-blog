@@ -1,10 +1,12 @@
-// app/components/DeleteButton.tsx
 "use client";
 
 import React, { useState } from "react";
+import { useRouter, usePathname } from "next/navigation"; // Import useRouter for navigation
 
 export default function DeleteButton({ postId }: { postId: string }) {
   const [isDeleting, setIsDeleting] = useState(false);
+  const router = useRouter(); // Initialize router
+  const pathname = usePathname(); // Get the current path
 
   const handleDelete = async () => {
     setIsDeleting(true);
@@ -17,10 +19,10 @@ export default function DeleteButton({ postId }: { postId: string }) {
         throw new Error("Failed to delete post");
       }
 
-      alert("Post deleted successfully!");
+      // alert("Post deleted successfully!");
 
-      // Optionally refresh the page or update the UI after deletion
-      window.location.reload();
+      // Navigate to the /blogs page after successful deletion
+      router.push("/blogs");
     } catch (error) {
       if (error instanceof Error) {
         alert("Error deleting post: " + error.message);
